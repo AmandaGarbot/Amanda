@@ -9,8 +9,9 @@
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.1/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
         * {
@@ -19,76 +20,67 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: #000000;
             color: #ffffff;
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         h1, h2, h3, h4, .logo, .nav-links a, .btn, .package-title {
             font-family: 'Playfair Display', serif;
         }
 
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #1a1a1a; }
-        ::-webkit-scrollbar-thumb { background: #C9A03D; border-radius: 4px; }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C9A03D;
+            border-radius: 4px;
+        }
 
-        .gold { color: #C9A03D; }
-        
-        @keyframes glowPulse {
-            0% { box-shadow: 0 0 0 0 rgba(201,160,61,0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(201,160,61,0); }
-            100% { box-shadow: 0 0 0 0 rgba(201,160,61,0); }
+        .gold {
+            color: #C9A03D;
         }
-        
-        @keyframes borderGlow {
-            0% { border-color: #C9A03D; box-shadow: 0 0 5px rgba(201,160,61,0.3); }
-            100% { border-color: #C9A03D; box-shadow: 0 0 20px rgba(201,160,61,0.6); }
-        }
-        
-        @keyframes imagePop {
-            0% { opacity: 0; transform: scale(0.8); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-        
+
         .btn-primary {
             background: #C9A03D;
             color: #000000;
-            padding: 12px 28px;
+            padding: 14px 32px;
             text-decoration: none;
             font-weight: 600;
             border-radius: 0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
             display: inline-block;
             font-family: 'Inter', sans-serif;
             border: 2px solid #C9A03D;
             cursor: pointer;
         }
-        
         .btn-primary:hover {
             background: transparent;
             color: #C9A03D;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(201,160,61,0.2);
+            transform: translateY(-2px);
         }
-        
         .btn-outline {
             background: transparent;
             color: #C9A03D;
-            padding: 10px 24px;
+            padding: 14px 32px;
             text-decoration: none;
             font-weight: 600;
             border-radius: 0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
             display: inline-block;
             font-family: 'Inter', sans-serif;
             border: 2px solid #C9A03D;
             cursor: pointer;
-            font-size: 14px;
         }
-        
         .btn-outline:hover {
             background: #C9A03D;
             color: #000000;
@@ -108,31 +100,33 @@
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(201,160,61,0.2);
         }
-        
-        .logo { font-size: 26px; font-weight: 700; letter-spacing: 2px; }
-        .logo span { color: #C9A03D; }
-        
-        .nav-links { display: flex; gap: 30px; }
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .logo span {
+            color: #C9A03D;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
         .nav-links a {
             color: white;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
-            position: relative;
+            font-family: 'Inter', sans-serif;
         }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #C9A03D;
-            transition: width 0.3s;
+        .nav-links a:hover {
+            color: #C9A03D;
         }
-        .nav-links a:hover::after { width: 100%; }
-        .nav-links a:hover { color: #C9A03D; }
-        .menu-icon { display: none; font-size: 28px; cursor: pointer; }
+        .menu-icon {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
 
         .hero {
             min-height: 100vh;
@@ -141,15 +135,33 @@
             align-items: center;
             padding: 120px 5% 80px;
         }
-        .hero h1 { font-size: 64px; line-height: 1.2; margin-bottom: 20px; }
-        .hero p { font-size: 20px; margin-bottom: 30px; color: #cccccc; }
-        .hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; }
+        .hero-content {
+            max-width: 800px;
+        }
+        .hero h1 {
+            font-size: 64px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #cccccc;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
 
-        section { padding: 100px 5%; }
+        section {
+            padding: 100px 5%;
+        }
         .section-title {
             font-size: 48px;
             text-align: center;
             margin-bottom: 60px;
+            position: relative;
         }
         .section-title:after {
             content: '';
@@ -158,399 +170,396 @@
             height: 3px;
             background: #C9A03D;
             margin: 15px auto 0;
-            animation: borderGlow 2s infinite;
         }
 
-        /* About Section */
+        /* About with image */
         .about-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 50px;
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
         }
-        
-        .profile-image-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 380px;
-            margin: 0 auto;
-            border-radius: 20px;
-            overflow: hidden;
-            aspect-ratio: 1 / 1;
-            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
-            border: 3px solid #C9A03D;
-            transition: all 0.3s ease;
-        }
-        .profile-image-wrapper:hover { transform: scale(1.02); }
-        .profile-image { width: 100%; height: 100%; object-fit: cover; }
-        .upload-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(8px);
-            padding: 12px;
-            text-align: center;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-        .profile-image-wrapper:hover .upload-overlay { transform: translateY(0); }
-        .upload-label { color: #C9A03D; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
-        #imageUpload { display: none; }
-        .remove-image-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0,0,0,0.7);
-            color: #ff4444;
-            border: none;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: none;
-            z-index: 10;
-        }
-        .profile-image-wrapper.has-image .remove-image-btn { display: flex; }
-        .about-text h3 { font-size: 32px; margin-bottom: 20px; color: #C9A03D; }
-        .about-text p { font-size: 17px; line-height: 1.8; color: #ccc; margin-bottom: 20px; }
-        .about-signature { font-family: 'Playfair Display', serif; font-size: 24px; color: #C9A03D; margin-top: 30px; font-style: italic; }
-        
-        /* Services Grid (Pricing Section) */
-        .services-showcase {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        
-        .service-card-compact {
-            background: #0a0a0a;
-            border: 1px solid #222;
-            padding: 30px 25px;
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-        .service-card-compact:hover {
-            transform: translateY(-8px);
-            border-color: #C9A03D;
-            box-shadow: 0 15px 35px rgba(201,160,61,0.15);
-        }
-        .service-icon-lg { font-size: 42px; color: #C9A03D; margin-bottom: 20px; }
-        .service-card-compact h3 { font-size: 22px; margin-bottom: 12px; }
-        .service-card-compact p { color: #aaa; font-size: 14px; line-height: 1.5; margin-bottom: 20px; }
-        
-        .package-mini-select {
-            width: 100%;
-            background: #111;
-            color: white;
-            padding: 10px;
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-            border: 1px solid #C9A03D;
-            cursor: pointer;
-            margin: 15px 0;
-        }
-        .package-mini-select:hover { background: #C9A03D; color: #000; }
-        
-        .mini-package-details {
-            background: #111;
-            padding: 15px;
-            margin-top: 15px;
-            border-left: 3px solid #C9A03D;
-        }
-        .mini-price { font-size: 24px; font-weight: 700; color: #C9A03D; margin: 10px 0; }
-        .mini-price span { font-size: 12px; color: #888; }
-        .mini-features { list-style: none; margin: 12px 0; }
-        .mini-features li { font-size: 12px; padding: 6px 0; display: flex; gap: 8px; border-bottom: 1px solid #222; }
-        .mini-features li i { color: #C9A03D; font-size: 11px; width: 16px; }
-        .popular-badge { font-size: 10px; background: #C9A03D; color: #000; padding: 2px 8px; margin-left: 10px; border-radius: 20px; display: inline-block; }
-        
-        /* Portfolio Section */
-        .portfolio-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-            gap: 20px;
-        }
-        .portfolio-filter {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .filter-btn {
-            background: none;
-            border: 1px solid #333;
-            color: white;
-            padding: 8px 24px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-        }
-        .filter-btn.active, .filter-btn:hover {
-            background: #C9A03D;
-            color: #000;
-            border-color: #C9A03D;
-        }
-        
-        .upload-portfolio-btn {
-            background: #C9A03D;
-            color: #000;
-            border: none;
-            padding: 8px 24px;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-        }
-        .upload-portfolio-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(201,160,61,0.3);
-        }
-        
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-        .portfolio-item {
-            background: #111;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            cursor: pointer;
-            position: relative;
-        }
-        .portfolio-item:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
-        .portfolio-media { position: relative; aspect-ratio: 16/9; overflow: hidden; }
-        .portfolio-media img, .portfolio-media iframe { width: 100%; height: 100%; object-fit: cover; }
-        .portfolio-info { padding: 15px; }
-        
-        .delete-portfolio-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0,0,0,0.7);
-            color: #ff4444;
-            border: none;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 20;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-        .delete-portfolio-btn:hover {
-            background: #ff4444;
-            color: white;
-        }
-        
-        .video-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50px;
-            height: 50px;
-            background: rgba(201,160,61,0.8);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
-        }
-        .portfolio-media:hover .video-overlay { opacity: 1; }
-        
-        .media-type-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: rgba(0,0,0,0.7);
-            padding: 4px 12px;
-            font-size: 11px;
-            border-radius: 20px;
-            z-index: 2;
-        }
-        
-        /* Modal Form for Adding Portfolio */
-        .form-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-        .form-modal.active { display: flex; }
-        .form-modal-content {
-            background: #111;
-            max-width: 500px;
-            width: 90%;
-            padding: 40px;
-            border: 1px solid #C9A03D;
-            position: relative;
-        }
-        .form-modal-content h3 {
-            font-size: 28px;
+        .about-text p {
+            font-size: 18px;
             margin-bottom: 25px;
-            color: #C9A03D;
+            color: #dddddd;
         }
-        .form-modal-content input,
-        .form-modal-content select,
-        .form-modal-content textarea {
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.5);
+            border: 1px solid rgba(201,160,61,0.3);
+        }
+        .about-image img {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            background: #1a1a1a;
-            border: 1px solid #333;
-            color: white;
-            font-family: 'Inter', sans-serif;
-        }
-        .form-modal-content input:focus,
-        .form-modal-content select:focus,
-        .form-modal-content textarea:focus {
-            outline: none;
-            border-color: #C9A03D;
-        }
-        .form-modal-content label {
+            height: auto;
             display: block;
-            margin-bottom: 8px;
-            font-size: 14px;
+            transition: transform 0.4s ease;
+        }
+        .about-image:hover img {
+            transform: scale(1.02);
+        }
+        .about-signature {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
             color: #C9A03D;
-        }
-        .image-preview-area {
-            margin: 15px 0;
-            text-align: center;
-        }
-        .image-preview {
-            max-width: 100%;
-            max-height: 150px;
-            border: 1px dashed #C9A03D;
-            display: none;
-            margin-top: 10px;
-        }
-        .form-buttons {
-            display: flex;
-            gap: 15px;
             margin-top: 20px;
         }
-        .close-form {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 28px;
-            cursor: pointer;
-            color: #888;
-        }
-        .close-form:hover { color: #C9A03D; }
-        
-        .testimonials-grid {
+
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
-        .testimonial-card {
-            background: #111;
-            padding: 35px;
-            position: relative;
+        .service-card {
+            background: #111111;
+            padding: 40px 30px;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        .service-card:hover {
+            border-bottom-color: #C9A03D;
+            transform: translateY(-10px);
+        }
+        .service-icon {
+            font-size: 48px;
+            color: #C9A03D;
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .service-card p {
+            color: #aaaaaa;
+            margin-bottom: 20px;
+        }
+        .service-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+        .service-list li {
+            padding: 8px 0;
+            color: #cccccc;
+            font-size: 14px;
+        }
+        .service-list i {
+            color: #C9A03D;
+            margin-right: 10px;
+        }
+
+        /* Portfolio Section (FULLY RESTORED) */
+        .portfolio-tabs {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .tab-btn {
+            background: none;
+            border: 1px solid #333;
+            color: white;
+            padding: 12px 28px;
+            margin: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+        }
+        .tab-btn.active, .tab-btn:hover {
+            background: #C9A03D;
+            color: #000;
+            border-color: #C9A03D;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        .portfolio-item {
+            background: #111111;
+            overflow: hidden;
             transition: all 0.3s;
         }
-        .testimonial-card:hover { transform: translateY(-5px); border-left: 3px solid #C9A03D; }
-        .testimonial-card i { font-size: 48px; color: #C9A03D; opacity: 0.2; position: absolute; top: 20px; right: 30px; }
-        .testimonial-text { font-style: italic; margin-bottom: 20px; color: #ddd; }
-        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+        .portfolio-media {
+            position: relative;
+            background: #0a0a0a;
+            overflow: hidden;
+        }
+        .portfolio-media img, 
+        .portfolio-media video {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        .portfolio-media video {
+            background: #000;
+        }
+        .media-type-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+        .media-type-badge.video {
+            background: #C9A03D;
+            color: #000;
+        }
+        .media-type-badge.image {
+            background: #333;
+            color: #C9A03D;
+        }
+        .portfolio-info {
+            padding: 20px;
+        }
+        .portfolio-info h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        .portfolio-info p {
+            font-size: 14px;
+            color: #C9A03D;
+        }
+
+        .portfolio-category {
+            display: none;
+        }
+        .portfolio-category.active {
+            display: block;
+        }
+
+        /* Packages: Basic, Standard, Premium */
+        .packages-service {
+            margin-bottom: 80px;
+        }
+        .packages-service h3 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #C9A03D;
+        }
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .package-card {
+            background: #111111;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid #222;
+            position: relative;
+        }
+        .package-card.featured {
+            border: 2px solid #C9A03D;
+            transform: scale(1.02);
+            background: #121212;
+        }
+        .package-card:hover {
+            transform: translateY(-10px);
+        }
+        .package-title {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        .package-price {
+            font-size: 42px;
+            color: #C9A03D;
+            margin: 20px 0;
+        }
+        .package-price span {
+            font-size: 16px;
+            color: #888;
+        }
+        .package-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+        .package-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        /* Testimonials - 6 cards with images */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+        }
+        .testimonial-card {
+            background: #111111;
+            padding: 30px;
+            position: relative;
+            transition: 0.3s;
+            border-radius: 12px;
+        }
+        .testimonial-card:hover {
+            background: #161616;
+        }
+        .testimonial-profile {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 20px;
+        }
+        .testimonial-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #C9A03D;
+        }
+        .testimonial-name h4 {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+        .testimonial-name p {
+            font-size: 13px;
+            color: #C9A03D;
+        }
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #ddd;
+            line-height: 1.5;
+        }
+        .quote-icon {
+            color: #C9A03D;
+            opacity: 0.4;
+            font-size: 28px;
+            margin-top: 5px;
+        }
+
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
         }
-        .contact-info, .contact-form input, .contact-form textarea {
-            background: #111;
-            padding: 30px;
+        .contact-info {
+            background: #111111;
+            padding: 40px;
         }
-        .contact-detail { display: flex; gap: 15px; margin: 20px 0; align-items: center; }
-        .social-links { margin-top: 25px; }
-        .social-links a { color: white; font-size: 24px; margin-right: 20px; transition: color 0.3s; }
-        .social-links a:hover { color: #C9A03D; }
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        .contact-detail i {
+            font-size: 24px;
+            color: #C9A03D;
+        }
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .social-links a {
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #C9A03D;
+        }
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            border-radius: 0;
+        }
         .contact-form input, .contact-form textarea {
             width: 100%;
+            padding: 15px;
             margin-bottom: 20px;
+            background: #111111;
             border: 1px solid #333;
             color: white;
             font-family: 'Inter', sans-serif;
         }
-        .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #C9A03D; }
-        
-        footer { background: #0a0a0a; text-align: center; padding: 40px; }
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: #C9A03D;
+        }
+
+        footer {
+            background: #0a0a0a;
+            text-align: center;
+            padding: 40px 5%;
+            border-top: 1px solid #222;
+        }
+
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
             right: 30px;
             background: #25D366;
-            width: 55px;
-            height: 55px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 1000;
-            animation: glowPulse 2s infinite;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
-        .whatsapp-float:hover { transform: scale(1.1); }
-        .whatsapp-float i { font-size: 28px; color: white; }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.96);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
+        .whatsapp-float:hover {
+            transform: scale(1.1);
         }
-        .modal.active { display: flex; }
-        .modal-content { max-width: 90%; position: relative; }
-        
-        @media (max-width: 1200px) {
-            .services-showcase { grid-template-columns: repeat(2, 1fr); }
+        .whatsapp-float i {
+            font-size: 32px;
+            color: white;
         }
-        @media (max-width: 1024px) {
-            .about-container { grid-template-columns: 1fr; text-align: center; gap: 40px; }
-        }
+
         @media (max-width: 768px) {
-            .services-showcase { grid-template-columns: 1fr; }
-            .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: #000; padding: 20px; text-align: center; }
-            .nav-links.active { display: flex; }
-            .menu-icon { display: block; }
-            .hero h1 { font-size: 40px; }
-            .contact-container { grid-template-columns: 1fr; }
-            .section-title { font-size: 36px; }
-            .profile-image-wrapper { max-width: 280px; }
-            .portfolio-header { flex-direction: column; align-items: stretch; }
-            .portfolio-filter { justify-content: center; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #000;
+                padding: 20px;
+                text-align: center;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu-icon {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 40px;
+            }
+            .contact-container, .about-container {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 36px;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            .tab-btn {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
         }
     </style>
 </head>
@@ -558,494 +567,216 @@
 
 <nav>
     <div class="logo">AMANDA <span>GRABOT</span></div>
-    <div class="menu-icon" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    <div class="menu-icon" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
     <div class="nav-links" id="navLinks">
         <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#services-packages">Pricing</a>
+        <a href="#services">Services</a>
         <a href="#portfolio">Portfolio</a>
+        <a href="#packages">Packages</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#contact">Contact</a>
     </div>
 </nav>
 
 <section id="home" class="hero">
-    <div class="hero-content" data-aos="fade-up">
+    <div class="hero-content">
         <h1>Creative Campaigns for <span class="gold">Authors & Brands</span></h1>
         <p>Cinematic book trailers • Strategic marketing • Audiobook production • Social media mastery</p>
         <div class="hero-buttons">
-            <a href="#services-packages" class="btn-primary">Explore Packages</a>
+            <a href="#packages" class="btn-primary">View Packages</a>
             <a href="#contact" class="btn-outline">Book a Consultation</a>
         </div>
     </div>
 </section>
 
-<!-- ABOUT SECTION -->
+<!-- About Section with Image (CORRECTED) -->
 <section id="about">
     <h2 class="section-title">About Amanda</h2>
     <div class="about-container">
-        <div class="about-image-area" data-aos="fade-right">
-            <div class="profile-image-wrapper" id="profileWrapper">
-                <img class="profile-image" id="profileImage" src="https://placehold.co/600x600/1a1a1a/C9A03D?text=Upload+Photo" alt="Amanda Grabot">
-                <button class="remove-image-btn" id="removeImageBtn"><i class="fas fa-trash-alt"></i></button>
-                <div class="upload-overlay" id="uploadOverlayTrigger">
-                    <label class="upload-label"><i class="fas fa-camera"></i> Click to Upload Photo</label>
-                </div>
-            </div>
-            <input type="file" id="imageUpload" accept="image/jpeg, image/png, image/jpg, image/webp, image/gif">
-            <p style="font-size: 13px; color: #888; margin-top: 15px;"><i class="fas fa-info-circle"></i> Hover over image & click to upload</p>
-        </div>
-        <div class="about-text" data-aos="fade-left">
-            <h3>Creative Marketing Strategist & Storyteller</h3>
+        <div class="about-text">
             <p>Amanda Grabot is a creative marketing strategist with over a decade of experience helping authors, publishers, and brands amplify their voice. Her passion lies at the intersection of storytelling and strategic promotion — crafting campaigns that don't just sell books, but build lasting author brands.</p>
-            <p>From launching New York Times bestselling authors to helping indie writers find their audience, Amanda brings a premium, detail-oriented approach to every project.</p>
+            <p>From launching <span class="gold">New York Times bestselling authors</span> to helping indie writers find their audience, Amanda brings a premium, detail-oriented approach to every project. She believes every book deserves a campaign as unique as its story.</p>
+            <p>Based in New York, Amanda works with clients worldwide, blending cinematic aesthetics with data-driven marketing to produce unforgettable results.</p>
             <div class="about-signature">— Amanda Grabot</div>
         </div>
+        <div class="about-image">
+            <img src="https://placehold.co/600x700/1a1a1a/C9A03D?text=Amanda+Grabot" alt="Amanda Grabot portrait">
+        </div>
     </div>
 </section>
 
-<!-- PRICING SECTION -->
-<section id="services-packages" style="background: #0a0a0a;">
-    <h2 class="section-title">Pricing & Packages</h2>
-    <div class="services-showcase" id="servicesGrid"></div>
+<section id="services" style="background: #0a0a0a;">
+    <h2 class="section-title">What I Offer</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+            <h3>Campaign Marketing</h3>
+            <p>Strategic book and brand campaigns designed to increase visibility and engagement.</p>
+            <ul class="service-list">
+                <li><i class="fas fa-check"></i> Email & Launch Campaigns</li>
+                <li><i class="fas fa-check"></i> Paid Advertising Support</li>
+                <li><i class="fas fa-check"></i> Influencer Outreach</li>
+                <li><i class="fas fa-check"></i> Marketing Consultation</li>
+            </ul>
+        </div>
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-video"></i></div>
+            <h3>Book Trailer Creation</h3>
+            <p>Cinematic trailers with motion graphics, sound design, and typography animation.</p>
+            <ul class="service-list">
+                <li><i class="fas fa-check"></i> Motion Graphics & Sound Design</li>
+                <li><i class="fas fa-check"></i> Social-Ready Formats</li>
+                <li><i class="fas fa-check"></i> Fiction & Nonfiction Concepts</li>
+                <li><i class="fas fa-check"></i> Cinematic Editing</li>
+            </ul>
+        </div>
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-microphone-alt"></i></div>
+            <h3>Audiobook Services</h3>
+            <p>Professional narration, editing, mastering, and distribution guidance.</p>
+            <ul class="service-list">
+                <li><i class="fas fa-check"></i> Voice-Over Narration</li>
+                <li><i class="fas fa-check"></i> Audio Editing & Mastering</li>
+                <li><i class="fas fa-check"></i> ACX/Audible Preparation</li>
+                <li><i class="fas fa-check"></i> Distribution Guidance</li>
+            </ul>
+        </div>
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-share-alt"></i></div>
+            <h3>Social Media Marketing</h3>
+            <p>Content creation, management, and engagement strategies for authors and brands.</p>
+            <ul class="service-list">
+                <li><i class="fas fa-check"></i> Content & Graphic Creation</li>
+                <li><i class="fas fa-check"></i> Short-Form Video Promotion</li>
+                <li><i class="fas fa-check"></i> Campaign Planning</li>
+                <li><i class="fas fa-check"></i> Branding Support</li>
+            </ul>
+        </div>
+    </div>
 </section>
 
-<!-- PORTFOLIO SECTION -->
+<!-- PORTFOLIO SECTION - FULLY RESTORED with original structure -->
 <section id="portfolio">
     <h2 class="section-title">Portfolio</h2>
-    <div class="portfolio-header">
-        <div class="portfolio-filter">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="campaign">Campaign Marketing</button>
-            <button class="filter-btn" data-filter="trailer">Book Trailers</button>
-            <button class="filter-btn" data-filter="audiobook">Audiobooks</button>
-            <button class="filter-btn" data-filter="social">Social Media</button>
-        </div>
-        <button class="upload-portfolio-btn" id="openFormBtn"><i class="fas fa-plus"></i> Add to Portfolio</button>
+    
+    <div class="portfolio-tabs">
+        <button class="tab-btn active" onclick="showCategory('campaign')">Campaign Marketing</button>
+        <button class="tab-btn" onclick="showCategory('trailer')">Book Trailers</button>
+        <button class="tab-btn" onclick="showCategory('audiobook')">Audiobook Services</button>
+        <button class="tab-btn" onclick="showCategory('social')">Social Media Marketing</button>
     </div>
-    <div class="portfolio-grid" id="portfolioGrid"></div>
+
+    <!-- CAMPAIGN MARKETING - 5 IMAGES -->
+    <div id="campaign-category" class="portfolio-category active">
+        <h3 style="text-align: center; margin-bottom: 30px; color: #C9A03D;">Campaign Marketing Projects</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item"><div class="portfolio-media"><span class="media-type-badge image"><i class="fas fa-image"></i> IMAGE</span><img src="campaign (1).jpeg" alt="Campaign Image 1"></div><div class="portfolio-info"><h4>Midweek Chapter Preview Campaign</h4><p>Email marketing dashboard showing engagement and performance analytics for a book chapter preview campaign.</p></div></div>
+            <div class="portfolio-item"><div class="portfolio-media"><span class="media-type-badge image"><i class="fas fa-image"></i> IMAGE</span><img src="campaign (2).jpeg" alt="Campaign Image 2"></div><div class="portfolio-info"><h4>January Mega Book Sale Results</h4><p>Campaign analytics highlighting sales growth, reader engagement, and revenue performance from a book promotion.</p></div></div>
+            <div class="portfolio-item"><div class="portfolio-media"><span class="media-type-badge image"><i class="fas fa-image"></i> IMAGE</span><img src="campaign (3).jpeg" alt="Campaign Image 3"></div><div class="portfolio-info"><h4>New Year Reader Launch Campaign</h4><p>Email campaign dashboard tracking audience interaction and launch performance for a new book release.</p></div></div>
+            <div class="portfolio-item"><div class="portfolio-media"><span class="media-type-badge image"><i class="fas fa-image"></i> IMAGE</span><img src="campaign (4).jpeg" alt="Campaign Image 4"></div><div class="portfolio-info"><h4>February Book Launch Performance</h4><p>Marketing analytics displaying reader engagement, conversions, and revenue from a February book launch campaign.</p></div></div>
+            <div class="portfolio-item"><div class="portfolio-media"><span class="media-type-badge image"><i class="fas fa-image"></i> IMAGE</span><img src="campaign (5).jpeg" alt="Campaign Image 5"></div><div class="portfolio-info"><h4>ROI Report Sample</h4><p>Campaign results and conversion metrics</p></div></div>
+        </div>
+    </div>
+
+    <!-- BOOK TRAILERS - 5 VIDEOS -->
+    <div id="trailer-category" class="portfolio-category">
+        <h3 style="text-align: center; margin-bottom: 30px; color: #C9A03D;">Book Trailer Projects</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item"><div class="portfolio-media"><span class="media-type-badge video"><i class="fas fa-video"></i> VIDEO</span><video><source src="Video 1.mp4" type="video/mp4"></video></div><div class="portfolio-info"><h4>Fantasy Epic Book Trailer</h4><p>Cinematic trailer with motion graphics</p></div></div>
+            <div class="portfolio-item"><div class="portfolio-media"><span class="media-type-badge video"><i class="fas fa-video"></i> VIDEO</span><video><source src="In the Shadow of the House of God Book.mp4" type="video/mp4"></video></div><div class="portfolio-info"><h4>Romance Novel Trailer</h4><p>Emotional storytelling with sound design</p></div></div>
+            <div class="portfolio-item"><div class="portfolio-media"><span class="media-type-badge video"><i class="fas fa-video"></i> VIDEO</span><video><source src="Faithful Exiles.mp4" type="video/mp4"></video></div><div class="portfolio-info"><h4>Thriller/Mystery Trailer</h4><p>Suspenseful editing and typography animation</p></div></div>
+            <div class="portfolio-item"><div class="portfolio-media"><span class="media-type-badge video"><i class="fas fa-video"></i> VIDEO</span><video><source src="Book Trailer_ What is the Christian Faith_.mp4" type="video/mp4"></video></div><div class="portfolio-info"><h4>Non-Fiction Book Trailer</h4><p>Professional and authoritative style</p></div></div>
+            <div class="portfolio-item"><div class="portfolio-media"><span class="media-type-badge video"><i class="fas fa-video"></i> VIDEO</span><video><source src="#" type="video/mp4"></video></div><div class="portfolio-info"><h4>Children's Book Trailer</h4><p>Colorful animation and engaging music</p></div></div>
+        </div>
+    </div>
+
+    <!-- AUDIOBOOK SERVICES - 5 VIDEOS -->
+    <div id="audiobook-category" class="portfolio-category">
+        <h3 style="text-align: center; margin-bottom: 30px; color: #C9A03D;">Audiobook Projects</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item"><div class="portfolio-media"><span class="media-type-badge video"><i class="fas fa-video"></i> VIDEO</span><video><source src="#" type="video/mp4"></video></div><div class="portfolio-info"><h4>Fiction Narration Sample</h4><p>Character voices and emotional delivery</p></div></div>
+            <div class="portfolio-item"><div class="portfolio-media"><span class="media-type-badge video"><i class="fas fa-video"></i> VIDEO</span><video><source src="#" type="video/mp4"></video></div><div class="portfolio-info"><h4>Non-Fiction Narration</h4><p>Professional and clear delivery style</p></div></div>
+            <div class="portfolio-item"><div class="portfolio-media"><span class="media-type-badge video"><i class="fas fa-video"></i> VIDEO</span><video><source src="#" type="video/mp4"></video></div><div class="portfolio-info"><h4>Mystery/Suspense Sample</h4><p>Tension-building narration technique</p></div></div>
+            <div class="portfolio-item"><div class="portfolio-media"><span class="media-type-badge video"><i class="fas fa-video"></i> VIDEO</span><video><source src="#" type="video/mp4"></video></div><div class="portfolio-info"><h4>Young Adult Narration</h4><p>Energetic and engaging style</p></div></div>
+            <div class="portfolio-item"><div class="portfolio-media"><span class="media-type-badge video"><i class="fas fa-video"></i> VIDEO</span><video><source src="#" type="video/mp4"></video></div><div class="portfolio-info"><h4>Poetry Narration Sample</h4><p>Rhythmic and expressive delivery</p></div></div>
+        </div>
+    </div>
+
+    <!-- SOCIAL MEDIA MARKETING - 5 IMAGES -->
+    <div id="social-category" class="portfolio-category">
+        <h3 style="text-align: center; margin-bottom: 30px; color: #C9A03D;">Social Media Marketing Projects</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item"><div class="portfolio-media"><span class="media-type-badge image"><i class="fas fa-image"></i> IMAGE</span><img src="social media post (1).jpeg" alt="Social Image 1"></div><div class="portfolio-info"><h4>Instagram Feed Design</h4><p>Cohesive brand aesthetic</p></div></div>
+            <div class="portfolio-item"><div class="portfolio-media"><span class="media-type-badge image"><i class="fas fa-image"></i> IMAGE</span><img src="Social media 3.jpeg" alt="Social Image 2"></div><div class="portfolio-info"><h4>Pinterest Strategy</h4><p>Visual discovery and traffic growth</p></div></div>
+            <div class="portfolio-item"><div class="portfolio-media"><span class="media-type-badge image"><i class="fas fa-image"></i> IMAGE</span><img src="social media post (2).jpeg" alt="Social Image 3"></div><div class="portfolio-info"><h4>Engagement Analytics</h4><p>Monthly performance reports</p></div></div>
+            <div class="portfolio-item"><div class="portfolio-media"><span class="media-type-badge image"><i class="fas fa-image"></i> IMAGE</span><img src="Social media 5.jpeg" alt="Social Image 4"></div><div class="portfolio-info"><h4>Content Calendar Sample</h4><p>30-day posting schedule</p></div></div>
+            <div class="portfolio-item"><div class="portfolio-media"><span class="media-type-badge image"><i class="fas fa-image"></i> IMAGE</span><img src="Social media 6.jpeg" alt="Social Image 5"></div><div class="portfolio-info"><h4>Hashtag Strategy</h4><p>Research and implementation guide</p></div></div>
+        </div>
+    </div>
 </section>
 
-<!-- ADD PORTFOLIO MODAL FORM -->
-<div id="addPortfolioModal" class="form-modal">
-    <div class="form-modal-content">
-        <span class="close-form" id="closeFormBtn">&times;</span>
-        <h3><i class="fas fa-plus-circle"></i> Add New Portfolio Item</h3>
-        <form id="addPortfolioForm">
-            <label>Select Service *</label>
-            <select id="portfolioService" required>
-                <option value="">-- Select Service --</option>
-                <option value="campaign">Campaign Marketing</option>
-                <option value="trailer">Book Trailer Creation</option>
-                <option value="audiobook">Audiobook Services</option>
-                <option value="social">Social Media Marketing</option>
-            </select>
-            
-            <label>Project Title *</label>
-            <input type="text" id="portfolioTitle" placeholder="e.g., Bestseller Campaign 2024" required>
-            
-            <label>Project Description *</label>
-            <textarea id="portfolioDesc" rows="3" placeholder="Describe this project..." required></textarea>
-            
-            <label>Upload Image *</label>
-            <input type="file" id="portfolioImageFile" accept="image/jpeg, image/png, image/jpg, image/webp" required>
-            <div class="image-preview-area">
-                <img id="imagePreview" class="image-preview" alt="Preview">
-            </div>
-            
-            <div class="form-buttons">
-                <button type="submit" class="btn-primary" style="width:100%">Add to Portfolio</button>
-            </div>
-        </form>
-    </div>
-</div>
+<!-- PACKAGES SECTION: Basic, Standard, Premium for each service -->
+<section id="packages" style="background: #0a0a0a;">
+    <h2 class="section-title">Tailored Packages</h2>
+    
+    <div class="packages-service"><h3>📈 Campaign Marketing</h3><div class="packages-grid"><div class="package-card"><h3 class="package-title">Basic</h3><div class="package-price">$599<span>/campaign</span></div><ul class="package-features"><li>Launch Strategy Blueprint</li><li>1 Email Newsletter Design</li><li>Audience Persona Guide</li><li>Basic Performance Report</li></ul><a href="#contact" class="btn-outline">Select Basic</a></div><div class="package-card featured"><h3 class="package-title">Standard</h3><div class="package-price">$1,200<span>/campaign</span></div><ul class="package-features"><li>Full Launch Strategy + Calendar</li><li>3 Email Campaigns + Copy</li><li>Influencer List Building</li><li>Paid Ads Support</li><li>Detailed Analytics Report</li></ul><a href="#contact" class="btn-primary">Choose Standard</a></div><div class="package-card"><h3 class="package-title">Premium</h3><div class="package-price">$2,400<span>/campaign</span></div><ul class="package-features"><li>Full 360° Campaign Management</li><li>Email Automation Setup</li><li>Influencer Outreach Execution</li><li>Retargeting Ad Strategy</li><li>Weekly Strategy Calls</li><li>ROI Deep Dive Report</li></ul><a href="#contact" class="btn-outline">Go Premium</a></div></div></div>
 
-<!-- TESTIMONIALS -->
-<section id="testimonials" style="background: #0a0a0a;">
+    <div class="packages-service"><h3>🎬 Book Trailer Creation</h3><div class="packages-grid"><div class="package-card"><h3 class="package-title">Basic</h3><div class="package-price">$450<span>/trailer</span></div><ul class="package-features"><li>30-Second Social Cut</li><li>Stock Footage + Typography</li><li>Basic Sound Design</li><li>1 Revision</li></ul><a href="#contact" class="btn-outline">Select Basic</a></div><div class="package-card featured"><h3 class="package-title">Standard</h3><div class="package-price">$850<span>/trailer</span></div><ul class="package-features"><li>60-Second Cinematic Trailer</li><li>Custom Motion Graphics</li><li>Professional Sound Design</li><li>2 Revisions + Social Cuts</li><li>Music Licensing Included</li></ul><a href="#contact" class="btn-primary">Choose Standard</a></div><div class="package-card"><h3 class="package-title">Premium</h3><div class="package-price">$1,500<span>/trailer</span></div><ul class="package-features"><li>90-Second Epic Trailer</li><li>3D Elements + Advanced VFX</li><li>Voiceover Optional</li><li>4 Revisions + All Format Cuts</li><li>Priority Rush Delivery</li></ul><a href="#contact" class="btn-outline">Go Premium</a></div></div></div>
+
+    <div class="packages-service"><h3>🎙️ Audiobook Production</h3><div class="packages-grid"><div class="package-card"><h3 class="package-title">Basic</h3><div class="package-price">$750<span>/project</span></div><ul class="package-features"><li>Up to 20K Words</li><li>Professional Narration</li><li>Basic Audio Editing</li><li>ACX Noise Reduction</li></ul><a href="#contact" class="btn-outline">Select Basic</a></div><div class="package-card featured"><h3 class="package-title">Standard</h3><div class="package-price">$1,500<span>/project</span></div><ul class="package-features"><li>Up to 50K Words</li><li>Character Voices / Tone</li><li>Full Editing + Mastering</li><li>ACX Check & Metadata</li><li>Chapter Markers</li></ul><a href="#contact" class="btn-primary">Choose Standard</a></div><div class="package-card"><h3 class="package-title">Premium</h3><div class="package-price">$2,800<span>/project</span></div><ul class="package-features"><li>Unlimited Word Count</li><li>Studio-Quality Narration</li><li>Sound Effects / Ambience</li><li>Distribution to Audible/Apple</li><li>Royalty Split Negotiation Help</li></ul><a href="#contact" class="btn-outline">Go Premium</a></div></div></div>
+
+    <div class="packages-service"><h3>📱 Social Media Marketing</h3><div class="packages-grid"><div class="package-card"><h3 class="package-title">Basic</h3><div class="package-price">$450<span>/month</span></div><ul class="package-features"><li>8 Posts + Graphics</li><li>Basic Caption Writing</li><li>Hashtag Research</li><li>Monthly Analytics Summary</li></ul><a href="#contact" class="btn-outline">Select Basic</a></div><div class="package-card featured"><h3 class="package-title">Standard</h3><div class="package-price">$800<span>/month</span></div><ul class="package-features"><li>15 Posts + Stories</li><li>Reel Creation (4 reels)</li><li>Weekly Engagement</li><li>Community Management</li><li>Detailed Monthly Report</li></ul><a href="#contact" class="btn-primary">Choose Standard</a></div><div class="package-card"><h3 class="package-title">Premium</h3><div class="package-price">$1,300<span>/month</span></div><ul class="package-features"><li>25 Posts + All Stories</li><li>8 High-Quality Reels</li><li>Paid Ad Management</li><li>Full Brand Strategy</li><li>Influencer Collaboration</li><li>Weekly Strategy Call</li></ul><a href="#contact" class="btn-outline">Go Premium</a></div></div></div>
+</section>
+
+<!-- TESTIMONIALS: 6 cards with profile images -->
+<section id="testimonials">
     <h2 class="section-title">Client Love</h2>
     <div class="testimonials-grid">
-        <div class="testimonial-card" data-aos="fade-up"><i class="fas fa-quote-left"></i><p class="testimonial-text">"Amanda's campaign for my debut novel was transformative. She understood my audience perfectly."</p><p class="gold">— Sarah J. Collins</p></div>
-        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-quote-left"></i><p class="testimonial-text">"The book trailer captured my story's essence. Pre-orders skyrocketed after launch!"</p><p class="gold">— Michael R. Thompson</p></div>
-        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-quote-left"></i><p class="testimonial-text">"Elevated our entire brand presence. A true expert in author marketing."</p><p class="gold">— Elena Vasquez</p></div>
+        <div class="testimonial-card"><div class="testimonial-profile"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sarah" class="testimonial-avatar"><div class="testimonial-name"><h4>Sarah J. Collins</h4><p>Bestselling Author</p></div></div><div class="testimonial-text">"Amanda's campaign for my debut novel was transformative. She understood my audience and exceeded every expectation."</div><div class="quote-icon"><i class="fas fa-quote-right"></i></div></div>
+        <div class="testimonial-card"><div class="testimonial-profile"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael" class="testimonial-avatar"><div class="testimonial-name"><h4>Michael R. Thompson</h4><p>Publisher</p></div></div><div class="testimonial-text">"The book trailer Amanda created captured my story perfectly. Cinematic, emotional — pre-orders skyrocketed."</div><div class="quote-icon"><i class="fas fa-quote-right"></i></div></div>
+        <div class="testimonial-card"><div class="testimonial-profile"><img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Elena" class="testimonial-avatar"><div class="testimonial-name"><h4>Elena Vasquez</h4><p>Marketing Director</p></div></div><div class="testimonial-text">"Working with Amanda elevated our brand presence. Her social media strategy brought our author community to life."</div><div class="quote-icon"><i class="fas fa-quote-right"></i></div></div>
+        <div class="testimonial-card"><div class="testimonial-profile"><img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David" class="testimonial-avatar"><div class="testimonial-name"><h4>David Chen</h4><p>Indie Author</p></div></div><div class="testimonial-text">"Amanda managed my audiobook production flawlessly. Got my book into Audible's top charts. Highly recommend!"</div><div class="quote-icon"><i class="fas fa-quote-right"></i></div></div>
+        <div class="testimonial-card"><div class="testimonial-profile"><img src="https://randomuser.me/api/portraits/women/23.jpg" alt="Rachel" class="testimonial-avatar"><div class="testimonial-name"><h4>Rachel Greene</h4><p>Literary Agent</p></div></div><div class="testimonial-text">"Amazing attention to detail. From campaign analytics to trailer mood boards, Amanda delivers premium work."</div><div class="quote-icon"><i class="fas fa-quote-right"></i></div></div>
+        <div class="testimonial-card"><div class="testimonial-profile"><img src="https://randomuser.me/api/portraits/men/52.jpg" alt="James" class="testimonial-avatar"><div class="testimonial-name"><h4>James O'Connor</h4><p>Brand Strategist</p></div></div><div class="testimonial-text">"The social media package increased our engagement by 200%. Amanda is a creative force — she truly cares."</div><div class="quote-icon"><i class="fas fa-quote-right"></i></div></div>
     </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
+<section id="contact" style="background: #0a0a0a;">
     <h2 class="section-title">Let's Work Together</h2>
     <div class="contact-container">
-        <div class="contact-info" data-aos="fade-right">
+        <div class="contact-info">
             <h3>Connect With Me</h3>
-            <div class="contact-detail"><i class="fas fa-envelope gold"></i><div>amandaograbot@gmail.com</div></div>
-            <div class="contact-detail"><i class="fab fa-whatsapp gold"></i><div>+1 (672) 767 4431</div></div>
-            <a href="https://wa.me/16727674431" class="btn-outline" style="display: inline-block;"><i class="fab fa-whatsapp"></i> Message on WhatsApp</a>
-            <div class="social-links"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div>
+            <div class="contact-detail"><i class="fas fa-envelope"></i><div>hello@amandagrabot.com</div></div>
+            <div class="contact-detail"><i class="fab fa-whatsapp"></i><div>+1 (555) 123-4567</div></div>
+            <a href="https://wa.me/15551234567" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Message on WhatsApp</a>
+            <div class="social-links"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div>
         </div>
-        <div class="contact-form" data-aos="fade-left">
-            <form id="contactForm">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <input type="text" placeholder="Project Type">
-                <textarea rows="4" placeholder="Tell me about your project..."></textarea>
-                <button type="submit" class="btn-primary" style="width:100%">Send Message</button>
-            </form>
+        <div class="contact-form">
+            <form action="#" method="post"><input type="text" placeholder="Your Name" required><input type="email" placeholder="Email Address" required><input type="text" placeholder="Project Type"><textarea rows="5" placeholder="Tell me about your project..."></textarea><button type="submit" class="btn-primary" style="width: 100%;">Send Message</button></form>
         </div>
     </div>
 </section>
-<footer><p>© 2025 Amanda Grabot — Premium Creative Marketing for Authors & Brands</p></footer>
 
-<div id="mediaModal" class="modal" onclick="closeModal()">
-    <div class="modal-content" onclick="event.stopPropagation()">
-        <span style="position:absolute; top:-40px; right:0; color:white; font-size:32px; cursor:pointer;" onclick="closeModal()">&times;</span>
-        <div id="modalMedia"></div>
-    </div>
-</div>
-<a href="https://wa.me/+16727674431" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+<footer><p>© 2024 Amanda Grabot — Premium Creative Marketing for Authors & Brands</p><p style="margin-top: 10px; font-size: 14px; color: #666;">All campaigns are crafted with precision and passion.</p></footer>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<a href="https://wa.me/15551234567" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+
 <script>
-    AOS.init({ duration: 800, once: true, offset: 80 });
-    
-    // ==================== PROFILE IMAGE UPLOAD ====================
-    const imageUploadInput = document.getElementById('imageUpload');
-    const profileImage = document.getElementById('profileImage');
-    const profileWrapper = document.getElementById('profileWrapper');
-    
-    function loadSavedImage() {
-        const savedImage = localStorage.getItem('amandaProfileImage');
-        if(savedImage && savedImage.startsWith('data:image')) {
-            profileImage.src = savedImage;
-            profileWrapper.classList.add('has-image');
-        } else {
-            profileWrapper.classList.remove('has-image');
-        }
-    }
-    
-    function saveImageToLocalStorage(imageData) {
-        localStorage.setItem('amandaProfileImage', imageData);
-    }
-    
-    function handleImageUpload(file) {
-        if(!file) return;
-        const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/webp', 'image/gif'];
-        if(!validTypes.includes(file.type)) {
-            alert('Please upload a valid image file');
-            return;
-        }
-        if(file.size > 5 * 1024 * 1024) {
-            alert('Image size should be less than 5MB.');
-            return;
-        }
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            profileImage.src = e.target.result;
-            profileWrapper.classList.add('has-image');
-            saveImageToLocalStorage(e.target.result);
-            profileImage.style.animation = 'imagePop 0.4s ease';
-            setTimeout(() => { profileImage.style.animation = ''; }, 400);
-        };
-        reader.readAsDataURL(file);
-    }
-    
-    function triggerImageUpload() { imageUploadInput.click(); }
-    window.removeImage = function() {
-        if(confirm('Remove your profile picture?')) {
-            profileImage.src = 'https://placehold.co/600x600/1a1a1a/C9A03D?text=Upload+Photo';
-            profileWrapper.classList.remove('has-image');
-            localStorage.removeItem('amandaProfileImage');
-        }
-    };
-    imageUploadInput.addEventListener('change', function(event) {
-        if(event.target.files[0]) handleImageUpload(event.target.files[0]);
-        imageUploadInput.value = '';
-    });
-    document.getElementById('uploadOverlayTrigger')?.addEventListener('click', () => triggerImageUpload());
-    document.getElementById('removeImageBtn')?.addEventListener('click', (e) => { e.stopPropagation(); window.removeImage(); });
-    loadSavedImage();
-    
-    // ==================== PORTFOLIO DATA ====================
-    // Original portfolio items (preserved)
-    let portfolioItems = [
-        { id: 1, serviceType: 'trailer', title: '"What is the Christian Faith?" Trailer', desc: 'Cinematic suspense with motion graphics', youtubeId: 'aNFtHBxiVlc', isVideo: true },
-        { id: 2, serviceType: 'trailer', title: '"The Last Kingdom" Fantasy Trailer', desc: 'Epic motion graphics and sound design', youtubeId: '42eceuWrS6M', isVideo: true },
-        { id: 3, serviceType: 'trailer', title: 'Instagram Reel Campaign', desc: 'Viral engagement strategy for authors', youtubeId: 'wLCKMaskH8c', isVideo: true },
-        { id: 4, serviceType: 'trailer', title: 'Bestseller Campaign Reel', desc: 'Audience growth and PR strategy', youtubeId: 't-FDq0Gi_is', isVideo: true }
-    ];
-    
-    // Load uploaded items from localStorage
-    function loadUploadedItems() {
-        const saved = localStorage.getItem('portfolioUploadedItems');
-        if(saved) {
-            try {
-                const uploaded = JSON.parse(saved);
-                portfolioItems = portfolioItems.filter(item => !item.isUploaded);
-                portfolioItems.push(...uploaded);
-            } catch(e) {}
-        }
-    }
-    
-    function saveUploadedItems() {
-        const uploaded = portfolioItems.filter(item => item.isUploaded === true);
-        localStorage.setItem('portfolioUploadedItems', JSON.stringify(uploaded));
-    }
-    
-    function addPortfolioItem(serviceType, title, desc, imageData) {
-        const newId = Date.now();
-        const newItem = {
-            id: newId,
-            serviceType: serviceType,
-            title: title,
-            desc: desc,
-            imageUrl: imageData,
-            isUploaded: true,
-            isVideo: false
-        };
-        portfolioItems.push(newItem);
-        saveUploadedItems();
-        return newItem;
-    }
-    
-    function deletePortfolioItem(itemId) {
-        const item = portfolioItems.find(i => i.id === itemId);
-        if(item && !item.isUploaded) {
-            alert("Original showcase items cannot be deleted.");
-            return;
-        }
-        if(confirm('Remove this portfolio item?')) {
-            portfolioItems = portfolioItems.filter(item => item.id !== itemId);
-            saveUploadedItems();
-            const currentFilter = document.querySelector('.filter-btn.active')?.getAttribute('data-filter') || 'all';
-            displayPortfolio(currentFilter);
-        }
-    }
-    
-    function displayPortfolio(filter = 'all') {
-        const grid = document.getElementById('portfolioGrid');
-        let filtered = portfolioItems;
-        if(filter !== 'all') {
-            filtered = portfolioItems.filter(item => item.serviceType === filter);
-        }
-        
-        if(filtered.length === 0) {
-            grid.innerHTML = '<div style="text-align:center; padding:60px; color:#888;"><i class="fas fa-folder-open" style="font-size:48px; margin-bottom:20px; display:block;"></i>No portfolio items. Click "Add to Portfolio" to showcase your work.</div>';
-            return;
-        }
-        
-        grid.innerHTML = filtered.map((item, idx) => {
-            let mediaHtml = '';
-            let mediaType = '';
-            if (item.isVideo && item.youtubeId) {
-                mediaHtml = `<iframe src="https://www.youtube.com/embed/${item.youtubeId}?autoplay=0" frameborder="0" allowfullscreen style="width:100%; height:100%;"></iframe>
-                             <div class="video-overlay"><i class="fas fa-play"></i></div>`;
-                mediaType = 'VIDEO';
-            } else if (item.imageUrl) {
-                mediaHtml = `<img src="${item.imageUrl}" alt="${escapeHtml(item.title)}" loading="lazy">`;
-                mediaType = 'IMAGE';
-            }
-            
-            const canDelete = item.isUploaded === true;
-            
-            return `<div class="portfolio-item" onclick="openMedia(${item.id})">
-                        <div class="portfolio-media">
-                            <span class="media-type-badge"><i class="fas ${item.isVideo ? 'fa-youtube' : 'fa-image'}"></i> ${mediaType}</span>
-                            ${mediaHtml}
-                            ${canDelete ? `<button class="delete-portfolio-btn" onclick="event.stopPropagation(); deletePortfolioItem(${item.id})"><i class="fas fa-trash-alt"></i></button>` : ''}
-                        </div>
-                        <div class="portfolio-info">
-                            <h4>${escapeHtml(item.title)}</h4>
-                            <p style="color:#C9A03D; font-size:13px;">${escapeHtml(item.desc)}</p>
-                        </div>
-                    </div>`;
-        }).join('');
-        if(typeof AOS !== 'undefined') AOS.refresh();
-    }
-    
-    function escapeHtml(str) {
-        return str.replace(/[&<>]/g, function(m) {
-            if (m === '&') return '&amp;';
-            if (m === '<') return '&lt;';
-            if (m === '>') return '&gt;';
-            return m;
-        });
-    }
-    
-    function openMedia(itemId) {
-        const item = portfolioItems.find(i => i.id === itemId);
-        if (!item) return;
-        const modal = document.getElementById('mediaModal');
-        const modalMedia = document.getElementById('modalMedia');
-        if (item.isVideo && item.youtubeId) {
-            modalMedia.innerHTML = `<iframe src="https://www.youtube.com/embed/${item.youtubeId}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="width:80vw; height:70vh;"></iframe>`;
-        } else if (item.imageUrl) {
-            modalMedia.innerHTML = `<img src="${item.imageUrl}" alt="${item.title}" style="max-width:100%; max-height:90vh;">`;
-        }
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
-    
-    function closeModal() {
-        const modal = document.getElementById('mediaModal');
-        modal.style.display = 'none';
-        document.getElementById('modalMedia').innerHTML = '';
-        document.body.style.overflow = '';
-    }
-    
-    // ==================== SERVICES/PRICING DATA ====================
-    const servicesData = [
-        { id: "campaign", name: "Campaign Marketing", icon: "fa-chart-line", description: "Strategic book & brand campaigns to maximize visibility.",
-          packages: { basic: { name: "Essential", price: "$250", period: "campaign", features: ["5000 Audience", "Email Template", "Basic Targeting", "Performance Summary"], popular: false },
-                      standard: { name: "Professional", price: "$500", period: "campaign", features: ["10000 Audience", "Email Campaign (3 sends)", "Audience Analytics", "Detailed Report"], popular: true },
-                      premium: { name: "Elite", price: "$1000", period: "campaign", features: ["20000 Audience", "Advanced Automation", "PR Outreach", "Weekly Sessions"], popular: false } } },
-        { id: "trailer", name: "Book Trailer Creation", icon: "fa-video", description: "Cinematic trailers with motion graphics & sound design.",
-          packages: { basic: { name: "Starter", price: "$255", period: "trailer", features: ["30-Second Trailer", "Stock Footage", "Basic Sound", "1 Revision"], popular: false },
-                      standard: { name: "Cinematic", price: "$520", period: "trailer", features: ["60-Second Edit", "Custom Motion Graphics", "Pro Sound", "Social Cuts", "2 Revisions"], popular: true },
-                      premium: { name: "Premium", price: "$850", period: "trailer", features: ["90-Second Epic", "3D Graphics", "Original Score", "All Formats", "5 Revisions"], popular: false } } },
-        { id: "audiobook", name: "Audiobook Services", icon: "fa-microphone-alt", description: "Professional narration, editing & distribution guidance.",
-          packages: { basic: { name: "Essential", price: "$900", period: "project", features: ["Narration (50k words)", "Audio Cleaning", "Noise Reduction", "ACX Check"], popular: false },
-                      standard: { name: "Production+", price: "$1,500", period: "project", features: ["Full Narration (80k words)", "Mastering", "Chapter Markers", "ACX Prep", "Distribution Guide"], popular: true },
-                      premium: { name: "Masterpiece", price: "$2,400", period: "project", features: ["Unlimited Words", "Studio Mastering", "Custom Music", "Full Distribution", "Promo Clips"], popular: false } } },
-        { id: "social", name: "Social Media Marketing", icon: "fa-share-alt", description: "Content creation, management & engagement strategies.",
-          packages: { basic: { name: "Starter", price: "$350", period: "month", features: ["2 Platform Setup", "10 Custom Posts", "Basic Graphics", "Caption Writing", "Monthly Analytics"], popular: false },
-                      standard: { name: "Growth", price: "$600", period: "month", features: ["3 Platform Setup","20 Posts + Graphics", "Weekly Engagement", "2 Reels", "Community Mgmt", "Strategy Call"], popular: true },
-                      premium: { name: "Authority", price: "$900", period: "month", features: ["5 Platform Setup","30 Posts + Advanced Graphics", "Daily Engagement", "4 Reels", "Dedicated Manager"], popular: false } } }
-    ];
-    
-    function renderServices() {
-        const container = document.getElementById('servicesGrid');
-        if(!container) return;
-        container.innerHTML = '';
-        servicesData.forEach((service, idx) => {
-            const card = document.createElement('div');
-            card.className = 'service-card-compact';
-            card.setAttribute('data-aos', 'fade-up');
-            card.setAttribute('data-aos-delay', (idx * 100).toString());
-            card.innerHTML = `
-                <div class="service-icon-lg"><i class="fas ${service.icon}"></i></div>
-                <h3>${service.name}</h3>
-                <p>${service.description}</p>
-                <select class="package-mini-select" onchange="updatePackageDetails('${service.id}', this.value)">
-                    <option value="basic">✨ Basic Plan</option>
-                    <option value="standard" selected>🌟 Standard Plan</option>
-                    <option value="premium">👑 Premium Plan</option>
-                </select>
-                <div class="mini-package-details" id="details-${service.id}"></div>
-            `;
-            container.appendChild(card);
-            updatePackageDetails(service.id, 'standard');
-        });
-    }
-    
-    window.updatePackageDetails = function(serviceId, tier) {
-        const service = servicesData.find(s => s.id === serviceId);
-        if(!service) return;
-        const pkg = service.packages[tier];
-        const detailsDiv = document.getElementById(`details-${serviceId}`);
-        if(detailsDiv) {
-            const popularMark = pkg.popular ? '<span class="popular-badge">🔥 Most Popular</span>' : '';
-            detailsDiv.innerHTML = `
-                <div><strong style="font-size: 16px;">${pkg.name} ${popularMark}</strong></div>
-                <div class="mini-price">${pkg.price}<span> / ${pkg.period}</span></div>
-                <ul class="mini-features">${pkg.features.map(f => `<li><i class="fas fa-check-circle"></i> ${f}</li>`).join('')}</ul>
-                <a href="#contact" class="btn-outline" style="padding: 8px 16px; font-size: 12px; margin-top: 8px; display: inline-block;" onclick="event.preventDefault(); document.querySelector('#contact').scrollIntoView({behavior:'smooth'});">Inquire →</a>
-            `;
-        }
-    };
-    
-    // ==================== FORM MODAL HANDLERS ====================
-    const formModal = document.getElementById('addPortfolioModal');
-    const openFormBtn = document.getElementById('openFormBtn');
-    const closeFormBtn = document.getElementById('closeFormBtn');
-    const portfolioImageFile = document.getElementById('portfolioImageFile');
-    const imagePreview = document.getElementById('imagePreview');
-    let selectedImageData = null;
-    
-    openFormBtn?.addEventListener('click', () => {
-        formModal.classList.add('active');
-        document.getElementById('addPortfolioForm').reset();
-        imagePreview.style.display = 'none';
-        selectedImageData = null;
-    });
-    
-    closeFormBtn?.addEventListener('click', () => {
-        formModal.classList.remove('active');
-    });
-    
-    portfolioImageFile?.addEventListener('change', (e) => {
-        const file = e.target.files[0];
-        if(file) {
-            const reader = new FileReader();
-            reader.onload = (ev) => {
-                imagePreview.src = ev.target.result;
-                imagePreview.style.display = 'block';
-                selectedImageData = ev.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-    
-    document.getElementById('addPortfolioForm')?.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const service = document.getElementById('portfolioService').value;
-        const title = document.getElementById('portfolioTitle').value.trim();
-        const desc = document.getElementById('portfolioDesc').value.trim();
-        
-        if(!service || !title || !desc || !selectedImageData) {
-            alert('Please fill all fields and select an image.');
-            return;
-        }
-        
-        addPortfolioItem(service, title, desc, selectedImageData);
-        formModal.classList.remove('active');
-        const currentFilter = document.querySelector('.filter-btn.active')?.getAttribute('data-filter') || 'all';
-        displayPortfolio(currentFilter);
-        alert('✅ Portfolio item added successfully!');
-    });
-    
-    // Close modal when clicking outside
-    window.onclick = (e) => {
-        if (e.target === formModal) formModal.classList.remove('active');
-        if (e.target === document.getElementById('mediaModal')) closeModal();
-    };
-    
-    // ==================== EVENT LISTENERS ====================
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const filter = this.getAttribute('data-filter');
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            displayPortfolio(filter);
-        });
-    });
-    
     function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
-    
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if(href === '#') return;
-            e.preventDefault();
-            const target = document.querySelector(href);
-            if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            document.getElementById('navLinks')?.classList.remove('active');
-        });
-    });
-    
-    document.getElementById('contactForm')?.addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('✨ Thank you! Amanda will respond within 24 hours.');
-        this.reset();
-    });
-    document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
-    
-    // Initialize
-    loadUploadedItems();
-    renderServices();
-    displayPortfolio('all');
-    
-    window.deletePortfolioItem = deletePortfolioItem;
-    window.openMedia = openMedia;
-    window.closeModal = closeModal;
-    window.toggleMenu = toggleMenu;
+    function showCategory(category) {
+        document.getElementById('campaign-category').classList.remove('active');
+        document.getElementById('trailer-category').classList.remove('active');
+        document.getElementById('audiobook-category').classList.remove('active');
+        document.getElementById('social-category').classList.remove('active');
+        document.getElementById(category + '-category').classList.add('active');
+        let btns = document.querySelectorAll('.tab-btn');
+        btns.forEach(btn => btn.classList.remove('active'));
+        if(event && event.target) event.target.classList.add('active');
+    }
+    document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('active')));
 </script>
 </body>
 </html>
